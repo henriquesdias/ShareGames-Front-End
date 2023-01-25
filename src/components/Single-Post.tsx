@@ -1,19 +1,22 @@
 import { Container } from "../styles/Single-Post";
 import picture from "../assets/default-profile.jpg";
+import { Post } from "../protocols";
 
-export function SinglePost() {
+type SinglePostProps = {
+  post: Post;
+};
+
+export function SinglePost({ post }: SinglePostProps) {
   return (
     <Container>
       <span>
-        <img src={picture} alt="" />
-        <p>Sheldon</p>
+        <img
+          src={post.Users.picture ? post.Users.picture : picture}
+          alt="picture-profile"
+        />
+        <p>{post.Users.username}</p>
       </span>
-      <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor ex
-        praesentium mollitia doloremque nulla! Totam tempora, dolore in odio et
-        delectus mollitia sequi fuga iure, quidem beatae adipisci aliquam
-        deserunt.
-      </p>
+      <p>{post.description}</p>
     </Container>
   );
 }

@@ -4,6 +4,7 @@ import { request } from "../services/axios";
 import { Post } from "../protocols";
 import { SinglePost } from "../components/Single-Post";
 import { Container } from "../styles/Feed";
+import { Header } from "../styles/Header";
 
 export default function Feed() {
   const [posts, setPosts] = useState<Post[]>([]);
@@ -18,10 +19,15 @@ export default function Feed() {
   }, []);
 
   return (
-    <Container>
-      <div>
-        <SinglePost />
-      </div>
-    </Container>
+    <>
+      <Header />
+      <Container>
+        <div>
+          {posts.map((e, index) => (
+            <SinglePost post={e} key={index} />
+          ))}
+        </div>
+      </Container>
+    </>
   );
 }

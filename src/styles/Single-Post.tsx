@@ -7,9 +7,11 @@ export const Container = styled.div`
   border-radius: 10px;
   padding: 10px;
   border: 1px solid #cccccc;
+  margin-bottom: 30px;
   span {
     display: flex;
     align-items: center;
+    margin-bottom: 10px;
     img {
       width: 40px;
       height: 40px;
