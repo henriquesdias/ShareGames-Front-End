@@ -32,6 +32,7 @@ display: block;
 }
 body {
 line-height: 1;
+background-color: #f1f2f2;
 }
 ol, ul {
 list-style: none;

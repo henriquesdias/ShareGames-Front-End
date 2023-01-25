@@ -18,5 +18,17 @@ export const Container = styled.div`
       border-radius: 50%;
       margin-right: 10px;
     }
+    p {
+      font-weight: bold;
+    }
+  }
+  > p {
+    min-height: 120px;
+  }
+  div {
+    width: 100%;
+    border-top: 1px solid #cccccc;
+    display: flex;
+    align-items: center;
   }
 `;
