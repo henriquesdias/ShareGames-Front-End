@@ -24,11 +24,6 @@ export const Container = styled.div`
   }
   > p {
     min-height: 120px;
-  }
-  div {
-    width: 100%;
-    border-top: 1px solid #cccccc;
-    display: flex;
-    align-items: center;
+    border-bottom: 1px solid #cccccc;
   }
 `;
