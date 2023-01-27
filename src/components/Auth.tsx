@@ -11,8 +11,8 @@ const Exit = styled(IoCloseSharp)`
   font-size: 30px;
 `;
 const Background = styled.div`
-  position: absolute;
-  z-index: 1;
+  position: fixed;
+  z-index: 3;
   top: 0;
   left: 0;
   width: 50%;
@@ -20,7 +20,6 @@ const Background = styled.div`
   animation: moviment 0.5s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
-  background-color: red;
   @keyframes moviment {
     from {
       background-color: rgba(0, 0, 0, 0);
@@ -34,6 +33,7 @@ const Background = styled.div`
 export default function Auth({ setShowAuth }: AuthProps) {
   return (
     <>
+      <Background onClick={() => setShowAuth(false)} />
       <AuthContainer>
         <span>
           <Exit onClick={() => setShowAuth(false)} />
@@ -44,7 +44,6 @@ export default function Auth({ setShowAuth }: AuthProps) {
           <button>Cadastro</button>
         </form>
       </AuthContainer>
-      <Background onClick={() => setShowAuth(false)}></Background>
     </>
   );
 }

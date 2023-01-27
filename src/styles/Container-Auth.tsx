@@ -2,17 +2,18 @@ import styled from "styled-components";
 
 export const AuthContainer = styled.div`
   background-color: #f1f2f2;
-  height: 100%;
+  height: 100vh;
   width: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  position: absolute;
+  position: fixed;
   z-index: 2;
   top: 0;
   right: 0;
-  animation: auth 0.5s;
+  bottom: 0;
+  animation: auth 0.2s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
   @keyframes auth {
