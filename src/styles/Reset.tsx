@@ -33,6 +33,7 @@ display: block;
 body {
 line-height: 1;
 background-color: #f1f2f2;
+overflow-x: hidden;
 }
 ol, ul {
 list-style: none;

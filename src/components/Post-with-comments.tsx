@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 
-import { Header } from "../styles/Header";
+import Header from "./Header";
 import { SinglePost } from "./Single-Post";
 import { ContainerFeed } from "../styles/Feed";
 

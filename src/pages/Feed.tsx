@@ -1,6 +1,6 @@
 import { SinglePost } from "../components/Single-Post";
 import { ContainerFeed } from "../styles/Feed";
-import { Header } from "../styles/Header";
+import Header from "../components/Header";
 import usePosts from "../hooks/usePosts";
 
 export default function Feed() {
