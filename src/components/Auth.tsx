@@ -1,7 +1,9 @@
 import styled from "styled-components";
+import { useEffect } from "react";
 
 import { AuthContainer } from "../styles/Container-Auth";
 import { IoCloseSharp } from "react-icons/io5";
+import SignUp from "./Sign-up";
 
 type AuthProps = {
   setShowAuth: Function;
@@ -31,6 +33,14 @@ const Background = styled.div`
 `;
 
 export default function Auth({ setShowAuth }: AuthProps) {
+  useEffect(() => {
+    document.addEventListener("keydown", (target: KeyboardEvent) => {
+      if (target.key === "Escape") {
+        setShowAuth(false);
+      }
+    });
+  }, []);
+
   return (
     <>
       <Background onClick={() => setShowAuth(false)} />
@@ -38,11 +48,7 @@ export default function Auth({ setShowAuth }: AuthProps) {
         <span>
           <Exit onClick={() => setShowAuth(false)} />
         </span>
-        <form action="">
-          <input type="email" />
-          <input type="text" />
-          <button>Cadastro</button>
-        </form>
+        <SignUp setShowAuth={setShowAuth} />
       </AuthContainer>
     </>
   );
