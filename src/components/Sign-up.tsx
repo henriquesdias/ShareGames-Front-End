@@ -22,7 +22,7 @@ export default function SignUp({ setShowAuth }: AuthProps) {
   function submitData(event: any) {
     event.preventDefault();
     signUp()
-      .then((res) => setShowAuth(false))
+      .then(() => setShowAuth(false))
       .catch((res) => console.log(res));
   }
   return (
@@ -49,7 +49,6 @@ export default function SignUp({ setShowAuth }: AuthProps) {
         placeholder="Picture"
         name="picture"
         onChange={(e) => setForm({ ...form, [e.target.name]: e.target.value })}
-        required
       />
       <input
         type="password"

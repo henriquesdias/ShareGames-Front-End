@@ -45,4 +45,9 @@ export const AuthContainer = styled.div`
       border-radius: 10px;
     }
   }
+  p {
+    margin-top: 20px;
+    text-decoration: underline;
+    cursor: pointer;
+  }
 `;

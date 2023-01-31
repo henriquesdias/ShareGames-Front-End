@@ -1,9 +1,10 @@
 import styled from "styled-components";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import { AuthContainer } from "../styles/Container-Auth";
 import { IoCloseSharp } from "react-icons/io5";
 import SignUp from "./Sign-up";
+import SignIn from "./Sign-in";
 
 type AuthProps = {
   setShowAuth: Function;
@@ -33,6 +34,8 @@ const Background = styled.div`
 `;
 
 export default function Auth({ setShowAuth }: AuthProps) {
+  const [authOption, setAuthOption] = useState("sign-in");
+
   useEffect(() => {
     document.addEventListener("keydown", (target: KeyboardEvent) => {
       if (target.key === "Escape") {
@@ -48,7 +51,20 @@ export default function Auth({ setShowAuth }: AuthProps) {
         <span>
           <Exit onClick={() => setShowAuth(false)} />
         </span>
-        <SignUp setShowAuth={setShowAuth} />
+        {authOption === "sign-in" ? (
+          <SignIn setShowAuth={setShowAuth} />
+        ) : (
+          <SignUp setShowAuth={setShowAuth} />
+        )}
+        {authOption === "sign-in" ? (
+          <p onClick={() => setAuthOption("sign-up")}>
+            Don't have an account ? Sign up
+          </p>
+        ) : (
+          <p onClick={() => setAuthOption("sign-in")}>
+            Have an account ? Log in now
+          </p>
+        )}
       </AuthContainer>
     </>
   );
