@@ -1,5 +1,5 @@
 import { SinglePost } from "../components/Single-Post";
-import { ContainerFeed } from "../styles/Feed";
+import { ContainerFeed } from "../styles/Container-Feed";
 import Header from "../components/Header";
 import usePosts from "../hooks/usePosts";
 
@@ -7,7 +7,6 @@ import CreatePost from "../components/Create-Post";
 
 export default function Feed() {
   const { posts } = usePosts();
-
   return (
     <>
       <Header />

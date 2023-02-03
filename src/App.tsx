@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { ThemeProvider } from "styled-components";
 
 import { ResetStyle } from "./styles/Reset";
 import Feed from "./pages/Feed";
@@ -12,15 +13,18 @@ export default function App() {
   const [token, setToken] = useState<string>(() =>
     tokenStorage ? tokenStorage : ""
   );
+  const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
 
   return (
     <BrowserRouter>
-      <ResetStyle />
       <UserContext.Provider value={{ token, setToken }}>
-        <Routes>
-          <Route path="/" element={<Feed />} />
-          <Route path="/comments" element={<PostWithComments />} />
-        </Routes>
+        <ThemeProvider theme={{ isDarkMode, setIsDarkMode }}>
+          <ResetStyle />
+          <Routes>
+            <Route path="/" element={<Feed />} />
+            <Route path="/comments" element={<PostWithComments />} />
+          </Routes>
+        </ThemeProvider>
       </UserContext.Provider>
     </BrowserRouter>
   );

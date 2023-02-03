@@ -15,7 +15,7 @@ export const Exit = styled(IoCloseSharp)`
 export const SendButton = styled(IoPaperPlaneOutline)`
   font-size: 28px;
 `;
-export const Menu = styled(IoReorderThreeSharp)`
+export const MenuPrincipal = styled(IoReorderThreeSharp)`
   font-size: 28px;
   cursor: pointer;
   transition: all linear 0.2s;
@@ -27,16 +27,17 @@ export const IconAuth = styled(IoPersonSharp)`
   font-size: 28px;
   cursor: pointer;
   transition: all linear 0.2s;
+  color: ${({ theme }) => (theme.isDarkMode ? "#ffffff" : "black")};
   &:hover {
     opacity: 60%;
   }
 `;
 
 export const IconComment = styled(IoChatbubbleEllipsesOutline)`
-  color: black;
+  color: ${(props) => (!props.theme.isDarkMode ? "#1e1e1e" : "#f7f7f7")};
   font-size: 28px;
   cursor: pointer;
-  transition: all linear 0.2s;
+  transition: opacity linear 0.2s;
   &:hover {
     opacity: 60%;
   }

@@ -2,7 +2,7 @@ import { useLocation } from "react-router-dom";
 
 import Header from "./Header";
 import { SinglePost } from "./Single-Post";
-import { ContainerFeed } from "../styles/Feed";
+import { ContainerFeed } from "../styles/Container-Feed";
 
 export default function PostWithComments() {
   const { state } = useLocation();
