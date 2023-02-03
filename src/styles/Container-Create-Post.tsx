@@ -4,9 +4,10 @@ export const CreatePostContainer = styled.form`
   width: 450px;
   height: 50px;
   background-color: white;
-  margin-top: 80px;
+  margin-bottom: 40px;
   display: flex;
-  border: 1px solid black;
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.5);
+
   border-radius: 10px;
   input {
     height: 100%;

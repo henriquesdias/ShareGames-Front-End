@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import { ResetStyle } from "./styles/Reset";
 import Feed from "./pages/Feed";
-import PostWithComments from "./components/Post-with-comments";
+import PostWithComments from "./components/Post-With-Comments";
 import { UserContext } from "./context/User-Context";
 
 export default function App() {

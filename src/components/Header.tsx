@@ -1,27 +1,8 @@
-import { IoPersonSharp, IoReorderThreeSharp } from "react-icons/io5";
-import styled from "styled-components";
-
 import { useState } from "react";
 
 import { ContainerHeader } from "../styles/Container-Header";
 import Auth from "./Auth";
-
-const Menu = styled(IoReorderThreeSharp)`
-  font-size: 28px;
-  cursor: pointer;
-  transition: all linear 0.2s;
-  &:hover {
-    opacity: 60%;
-  }
-`;
-const IconAuth = styled(IoPersonSharp)`
-  font-size: 28px;
-  cursor: pointer;
-  transition: all linear 0.2s;
-  &:hover {
-    opacity: 60%;
-  }
-`;
+import { Menu, IconAuth } from "../styles/Icons";
 
 export default function Header() {
   const [showAuth, setShowAuth] = useState<boolean>(false);

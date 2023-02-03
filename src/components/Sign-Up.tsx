@@ -1,5 +1,5 @@
-import { useState } from "react";
-import useSignUp from "../hooks/useSign-Up";
+import { FormEvent, useState } from "react";
+import signUp from "../api/sign-up";
 
 type AuthProps = {
   setShowAuth: Function;
@@ -13,15 +13,10 @@ export default function SignUp({ setShowAuth }: AuthProps) {
     password: "",
     confirmPassword: "",
   });
-  const { signUp } = useSignUp({
-    email: form.email,
-    username: form.username,
-    picture: form.picture,
-    password: form.password,
-  });
-  function submitData(event: any) {
+  function submitData(event: FormEvent) {
     event.preventDefault();
-    signUp()
+    const { email, username, picture, password } = form;
+    signUp({ email, username, picture, password })
       .then(() => setShowAuth(false))
       .catch((res) => console.log(res));
   }

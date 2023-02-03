@@ -1,15 +1,9 @@
 import { useState } from "react";
 
-import { IoPaperPlaneOutline } from "react-icons/io5";
-
-import styled from "styled-components";
-import { CreatePostContainer } from "../styles/Container-Create-post";
+import { CreatePostContainer } from "../styles/Container-Create-Post";
 import useToken from "../hooks/useToken";
 import createPost from "../api/create-post";
-
-const SendButton = styled(IoPaperPlaneOutline)`
-  font-size: 28px;
-`;
+import { SendButton } from "../styles/Icons";
 
 export default function CreatePost() {
   const { token } = useToken();

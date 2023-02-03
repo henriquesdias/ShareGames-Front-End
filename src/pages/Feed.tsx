@@ -3,7 +3,7 @@ import { ContainerFeed } from "../styles/Feed";
 import Header from "../components/Header";
 import usePosts from "../hooks/usePosts";
 
-import CreatePost from "../components/Create-post";
+import CreatePost from "../components/Create-Post";
 
 export default function Feed() {
   const { posts } = usePosts();

@@ -1,7 +1,6 @@
-import { useState } from "react";
-import { useContext } from "react";
+import { useState, useContext, FormEvent } from "react";
 
-import useSignIn from "../hooks/useSign-in";
+import signIn from "../api/sign-in";
 import { UserContext } from "../context/User-Context";
 
 type AuthProps = {
@@ -14,13 +13,9 @@ export default function SignIn({ setShowAuth }: AuthProps) {
     email: "",
     password: "",
   });
-  const { signIn } = useSignIn({
-    email: form.email,
-    password: form.password,
-  });
-  function submitData(event: React.FormEvent) {
+  function submitData(event: FormEvent) {
     event.preventDefault();
-    signIn()
+    signIn(form)
       .then((res) => {
         const { token } = res.data;
         localStorage.setItem("token", token);

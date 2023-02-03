@@ -2,17 +2,14 @@ import styled from "styled-components";
 import { useEffect, useState } from "react";
 
 import { AuthContainer } from "../styles/Container-Auth";
-import { IoCloseSharp } from "react-icons/io5";
-import SignUp from "./Sign-up";
-import SignIn from "./Sign-in";
+import { Exit } from "../styles/Icons";
+import SignUp from "./Sign-Up";
+import SignIn from "./Sign-In";
 
 type AuthProps = {
   setShowAuth: Function;
 };
 
-const Exit = styled(IoCloseSharp)`
-  font-size: 30px;
-`;
 const Background = styled.div`
   position: fixed;
   z-index: 3;
