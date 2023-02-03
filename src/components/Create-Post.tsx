@@ -17,18 +17,26 @@ export default function CreatePost() {
       .catch((res) => console.log(res));
   }
   return (
-    <CreatePostContainer onSubmit={submitData}>
-      <input
-        type="text"
-        placeholder="Faça uma pergunta ..."
-        value={form.description}
-        name="description"
-        onChange={(e) => setForm({ ...form, [e.target.name]: e.target.value })}
-        required
-      />
-      <button type="submit">
-        <SendButton />
-      </button>
-    </CreatePostContainer>
+    <>
+      {token === "" ? (
+        <></>
+      ) : (
+        <CreatePostContainer onSubmit={submitData}>
+          <input
+            type="text"
+            placeholder="Faça uma pergunta ..."
+            value={form.description}
+            name="description"
+            onChange={(e) =>
+              setForm({ ...form, [e.target.name]: e.target.value })
+            }
+            required
+          />
+          <button type="submit">
+            <SendButton />
+          </button>
+        </CreatePostContainer>
+      )}
+    </>
   );
 }

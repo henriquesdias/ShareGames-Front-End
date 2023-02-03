@@ -7,7 +7,6 @@ export const CreatePostContainer = styled.form`
   margin-bottom: 40px;
   display: flex;
   box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.5);
-
   border-radius: 10px;
   input {
     height: 100%;
