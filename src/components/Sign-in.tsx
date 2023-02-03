@@ -1,11 +1,15 @@
 import { useState } from "react";
+import { useContext } from "react";
+
 import useSignIn from "../hooks/useSign-in";
+import { UserContext } from "../context/User-Context";
 
 type AuthProps = {
   setShowAuth: Function;
 };
 
 export default function SignIn({ setShowAuth }: AuthProps) {
+  const { setToken } = useContext(UserContext);
   const [form, setForm] = useState({
     email: "",
     password: "",
@@ -14,12 +18,13 @@ export default function SignIn({ setShowAuth }: AuthProps) {
     email: form.email,
     password: form.password,
   });
-  function submitData(event: any) {
+  function submitData(event: React.FormEvent) {
     event.preventDefault();
     signIn()
       .then((res) => {
-        console.log(res);
-
+        const { token } = res.data;
+        localStorage.setItem("token", token);
+        setToken(token);
         setShowAuth(false);
       })
       .catch((res) => console.log(res));

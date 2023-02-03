@@ -31,6 +31,9 @@ const Background = styled.div`
       background-color: rgba(0, 0, 0, 0.5);
     }
   }
+  @media (max-width: 694px) {
+    display: none;
+  }
 `;
 
 export default function Auth({ setShowAuth }: AuthProps) {

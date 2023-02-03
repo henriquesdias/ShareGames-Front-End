@@ -8,6 +8,7 @@ export const Container = styled.div`
   padding: 10px;
   border: 1px solid #cccccc;
   margin-bottom: 30px;
+  box-shadow: 5px 5px 5px 1px black;
   span {
     display: flex;
     align-items: center;
@@ -25,5 +26,8 @@ export const Container = styled.div`
   > p {
     min-height: 120px;
     border-bottom: 1px solid #cccccc;
+  }
+  @media (max-width: 694px) {
+    width: 100%;
   }
 `;
