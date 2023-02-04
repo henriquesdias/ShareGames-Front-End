@@ -5,11 +5,12 @@ import { Container } from "../styles/Container-Single-Post";
 import Comment from "./Comments";
 import { Post } from "../protocols";
 import { IconComment } from "../styles/Icons";
+import CreateComment from "./Create-Comment";
 
-type SinglePostProps = {
+interface SinglePostProps {
   post: Post;
   showComments: boolean;
-};
+}
 
 export function SinglePost({ post, showComments }: SinglePostProps) {
   const navigate = useNavigate();
@@ -24,7 +25,12 @@ export function SinglePost({ post, showComments }: SinglePostProps) {
       </span>
       <p>{post.description}</p>
       {showComments ? (
-        post.Comments.map((e, index) => <Comment comment={e} key={index} />)
+        <>
+          <CreateComment postId={post.id} />
+          {post.Comments.map((e, index) => (
+            <Comment comment={e} key={index} />
+          ))}
+        </>
       ) : (
         <IconComment
           onClick={() =>

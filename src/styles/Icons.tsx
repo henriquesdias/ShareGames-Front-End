@@ -38,6 +38,7 @@ export const IconComment = styled(IoChatbubbleEllipsesOutline)`
   font-size: 28px;
   cursor: pointer;
   transition: opacity linear 0.2s;
+  margin-top: 10px;
   &:hover {
     opacity: 60%;
   }

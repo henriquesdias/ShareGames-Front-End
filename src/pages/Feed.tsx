@@ -6,13 +6,13 @@ import usePosts from "../hooks/usePosts";
 import CreatePost from "../components/Create-Post";
 
 export default function Feed() {
-  const { posts } = usePosts();
+  const { posts, setPosts } = usePosts();
   return (
     <>
       <Header />
       <ContainerFeed>
         <div>
-          <CreatePost />
+          <CreatePost posts={posts} setPosts={setPosts} />
           {posts.map((e, index) => (
             <SinglePost showComments={false} post={e} key={index} />
           ))}

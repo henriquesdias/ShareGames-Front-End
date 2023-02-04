@@ -19,10 +19,13 @@ const MenuContainer = styled.div`
     top: 30px;
     left: -30px;
     color: ${({ theme }) => (theme.isDarkMode ? "#ffffff" : "black")};
-    cursor: pointer;
   }
   &:hover > ul {
     display: block;
+  }
+  li {
+    height: 100%;
+    cursor: pointer;
   }
 `;
 

@@ -15,5 +15,5 @@ export default function usePosts() {
       .catch((answer) => console.log(answer));
   }, []);
 
-  return { posts };
+  return { posts, setPosts };
 }

@@ -32,9 +32,3 @@ export const Container = styled.div`
     width: 100%;
   }
 `;
-
-Container.defaultProps = {
-  theme: {
-    main: "red",
-  },
-};

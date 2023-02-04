@@ -4,8 +4,13 @@ import { CreatePostContainer } from "../styles/Container-Create-Post";
 import useToken from "../hooks/useToken";
 import createPost from "../api/create-post";
 import { SendButton } from "../styles/Icons";
+import { Post } from "../protocols";
 
-export default function CreatePost() {
+type CreatePostProps = {
+  posts: Omit<Post, "Users" | "Comments">[];
+  setPosts: Function;
+};
+export default function CreatePost({ posts, setPosts }: CreatePostProps) {
   const { token } = useToken();
   const [form, setForm] = useState({
     description: "",
