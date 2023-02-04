@@ -24,3 +24,9 @@ export type Post = {
   Users: User;
   Comments: Comment[];
 };
+
+export type Theme = {
+  backgroundPrincipal: string;
+  backgroundSecundary: string;
+  fontColor: string;
+};

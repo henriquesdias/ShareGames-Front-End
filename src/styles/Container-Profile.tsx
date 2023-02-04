@@ -11,9 +11,8 @@ export const ProfileContainer = styled.div`
   > div {
     display: none;
     position: absolute;
-    color: ${({ theme }) => (theme.isDarkMode ? "#ffffff" : "black")};
-    background-color: ${({ theme }) =>
-      !theme.isDarkMode ? "#f9f9f9" : "black"};
+    color: ${({ theme }) => theme.usedTheme.fontColor};
+    background-color: ${({ theme }) => theme.usedTheme.backgroundPrincipal};
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     padding: 12px 16px;

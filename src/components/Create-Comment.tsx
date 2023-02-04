@@ -41,8 +41,15 @@ const CreateCommentContainer = styled.form`
   input {
     outline: none;
     border: none;
-    border-radius: 10px;
+    border-radius: 10px 0 0 10px;
     width: 80%;
+    background-color: ${({ theme }) => theme.usedTheme.backgroundPrincipal};
+    color: ${({ theme }) => theme.usedTheme.fontColor};
+    padding-left: 10px;
+    ::placeholder {
+      color: ${({ theme }) => theme.usedTheme.fontColor};
+      padding-left: 7px;
+    }
   }
   button {
     border: none;

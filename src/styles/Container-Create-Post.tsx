@@ -13,11 +13,10 @@ export const CreatePostContainer = styled.form`
     border: none;
     width: 80%;
     border-radius: 10px 0 0 10px;
-    color: ${({ theme }) => (!theme.isDarkMode ? "#1e1e1e" : "#f7f7f7")};
-    background-color: ${({ theme }) =>
-      theme.isDarkMode ? "#1e1e1e" : "#f7f7f7"};
+    color: ${({ theme }) => theme.usedTheme.fontColor};
+    background-color: ${({ theme }) => theme.usedTheme.backgroundPrincipal};
     ::placeholder {
-      color: ${({ theme }) => (!theme.isDarkMode ? "#1e1e1e" : "#f7f7f7")};
+      color: ${({ theme }) => theme.usedTheme.fontColor};
     }
   }
 

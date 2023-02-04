@@ -1,8 +1,7 @@
 import styled from "styled-components";
-// #f1f2f2
+
 export const ContainerFeed = styled.div`
-  background-color: ${(props) =>
-    props.theme.isDarkMode ? "#222222" : "#f1f2f2"};
+  background-color: ${({ theme }) => theme.usedTheme.backgroundPrincipal};
   min-height: 100vh;
   padding-top: 80px;
   > div {

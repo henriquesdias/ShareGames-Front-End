@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ContainerHeader = styled.header`
-  background-color: ${({ theme }) => (theme.isDarkMode ? "black" : "#ffffff")};
+  background-color: ${({ theme }) => theme.usedTheme.backgroundSecundary};
   height: 50px;
   box-shadow: 0 3px 6px rgb(0 0 0 / 4%);
   position: fixed;
@@ -19,7 +19,7 @@ export const ContainerHeader = styled.header`
     justify-content: space-between;
     padding: 0 50px;
     span {
-      color: ${({ theme }) => (theme.isDarkMode ? "#ffffff" : "black")};
+      color: ${({ theme }) => theme.usedTheme.fontColor};
     }
   }
 `;

@@ -27,14 +27,14 @@ export const IconAuth = styled(IoPersonSharp)`
   font-size: 28px;
   cursor: pointer;
   transition: all linear 0.2s;
-  color: ${({ theme }) => (theme.isDarkMode ? "#ffffff" : "black")};
+  color: ${({ theme }) => theme.usedTheme.fontColor};
   &:hover {
     opacity: 60%;
   }
 `;
 
 export const IconComment = styled(IoChatbubbleEllipsesOutline)`
-  color: ${(props) => (!props.theme.isDarkMode ? "#1e1e1e" : "#f7f7f7")};
+  color: ${({ theme }) => theme.usedTheme.fontColor};
   font-size: 28px;
   cursor: pointer;
   transition: opacity linear 0.2s;
