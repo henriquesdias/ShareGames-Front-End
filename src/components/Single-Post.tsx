@@ -10,9 +10,16 @@ import CreateComment from "./Create-Comment";
 interface SinglePostProps {
   post: Post;
   showComments: boolean;
+  posts: Post[];
+  setPosts: Function;
 }
 
-export function SinglePost({ post, showComments }: SinglePostProps) {
+export function SinglePost({
+  post,
+  showComments,
+  posts,
+  setPosts,
+}: SinglePostProps) {
   const navigate = useNavigate();
   return (
     <Container>
@@ -26,7 +33,7 @@ export function SinglePost({ post, showComments }: SinglePostProps) {
       <p>{post.description}</p>
       {showComments ? (
         <>
-          <CreateComment postId={post.id} />
+          <CreateComment postId={post.id} posts={posts} setPosts={setPosts} />
           {post.Comments.map((e, index) => (
             <Comment comment={e} key={index} />
           ))}

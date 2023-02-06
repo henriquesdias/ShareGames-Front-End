@@ -1,15 +1,21 @@
 import { FormEvent, useState } from "react";
 
-import styled from "styled-components";
-
 import { createComment } from "../api/create-comment";
 import useToken from "../hooks/useToken";
+import { CreateCommentContainer } from "../styles/Container-Create-Comment";
+import { Post } from "../protocols";
 
 interface CreateCommentProps {
   postId: number;
+  posts: Post[];
+  setPosts: Function;
 }
 
-export default function CreateComment({ postId }: CreateCommentProps) {
+export default function CreateComment({
+  postId,
+  posts,
+  setPosts,
+}: CreateCommentProps) {
   const [form, setForm] = useState({ description: "" });
   const { token } = useToken();
   function submitData(event: FormEvent) {
@@ -31,27 +37,3 @@ export default function CreateComment({ postId }: CreateCommentProps) {
     </CreateCommentContainer>
   );
 }
-
-const CreateCommentContainer = styled.form`
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin-top: 10px;
-  height: 30px;
-  input {
-    outline: none;
-    border: none;
-    border-radius: 10px 0 0 10px;
-    width: 80%;
-    background-color: ${({ theme }) => theme.usedTheme.backgroundPrincipal};
-    color: ${({ theme }) => theme.usedTheme.fontColor};
-    padding-left: 10px;
-    ::placeholder {
-      color: ${({ theme }) => theme.usedTheme.fontColor};
-      padding-left: 7px;
-    }
-  }
-  button {
-    border: none;
-  }
-`;

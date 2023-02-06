@@ -6,11 +6,11 @@ import createPost from "../api/create-post";
 import { SendButton } from "../styles/Icons";
 import { Post } from "../protocols";
 
-type CreatePostProps = {
-  posts: Omit<Post, "Users" | "Comments">[];
-  setPosts: Function;
-};
-export default function CreatePost({ posts, setPosts }: CreatePostProps) {
+interface CreatePostProps {
+  refresh: boolean;
+  setRefresh: Function;
+}
+export default function CreatePost({ refresh, setRefresh }: CreatePostProps) {
   const { token } = useToken();
   const [form, setForm] = useState({
     description: "",
@@ -18,7 +18,7 @@ export default function CreatePost({ posts, setPosts }: CreatePostProps) {
   function submitData(event: React.FormEvent) {
     event.preventDefault();
     createPost(form.description, token)
-      .then((res) => console.log(res))
+      .then(() => setRefresh(!refresh))
       .catch((res) => console.log(res));
   }
   return (

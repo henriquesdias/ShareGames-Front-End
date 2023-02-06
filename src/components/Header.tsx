@@ -16,7 +16,7 @@ export default function Header() {
       <ContainerHeader>
         <nav>
           <Menu />
-          <span>Título do projeto</span>
+          <span>ShareGames</span>
           <div>
             {token ? (
               <Profile />

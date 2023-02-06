@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const ContainerHeader = styled.header`
   background-color: ${({ theme }) => theme.usedTheme.backgroundSecundary};
   height: 50px;
-  box-shadow: 0 3px 6px rgb(0 0 0 / 4%);
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.5);
   position: fixed;
   top: 0;
   left: 0;

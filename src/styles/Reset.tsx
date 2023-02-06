@@ -34,6 +34,7 @@ body {
 line-height: 1;
 background-color: #f1f2f2;
 overflow-x: hidden;
+font-family: 'Source Sans Pro', sans-serif;
 }
 ol, ul {
 list-style: none;
@@ -52,4 +53,5 @@ border-spacing: 0;
 }
 *{
 box-sizing: border-box;
+transition: all linear 0.1s;
 }`;

@@ -25,6 +25,7 @@ export const Container = styled.div`
   }
   > p {
     min-height: 120px;
+    word-break: break-word;
     border-bottom: 1px solid #cccccc;
   }
   @media (max-width: 694px) {

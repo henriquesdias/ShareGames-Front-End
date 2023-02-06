@@ -5,6 +5,7 @@ import { Post } from "../protocols";
 
 export default function usePosts() {
   const [posts, setPosts] = useState<Post[]>([]);
+  const [refresh, setRefresh] = useState<boolean>(false);
 
   useEffect(() => {
     request
@@ -13,7 +14,7 @@ export default function usePosts() {
         setPosts(answer.data);
       })
       .catch((answer) => console.log(answer));
-  }, []);
+  }, [refresh]);
 
-  return { posts, setPosts };
+  return { posts, setPosts, refresh, setRefresh };
 }
