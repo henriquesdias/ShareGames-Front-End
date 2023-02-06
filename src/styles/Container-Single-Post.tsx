@@ -6,7 +6,7 @@ export const Container = styled.div`
   background-color: ${({ theme }) => theme.usedTheme.backgroundSecundary};
   border-radius: 10px;
   padding: 10px;
-  margin-bottom: 30px;
+  margin-top: 30px;
   box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.5);
   color: ${({ theme }) => theme.usedTheme.fontColor};
   span {

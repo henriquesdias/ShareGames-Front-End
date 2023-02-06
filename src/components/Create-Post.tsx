@@ -4,12 +4,12 @@ import { CreatePostContainer } from "../styles/Container-Create-Post";
 import useToken from "../hooks/useToken";
 import createPost from "../api/create-post";
 import { SendButton } from "../styles/Icons";
-import { Post } from "../protocols";
 
 interface CreatePostProps {
   refresh: boolean;
   setRefresh: Function;
 }
+
 export default function CreatePost({ refresh, setRefresh }: CreatePostProps) {
   const { token } = useToken();
   const [form, setForm] = useState({

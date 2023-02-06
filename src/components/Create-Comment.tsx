@@ -1,27 +1,27 @@
 import { FormEvent, useState } from "react";
+import { redirect } from "react-router-dom";
 
 import { createComment } from "../api/create-comment";
 import useToken from "../hooks/useToken";
 import { CreateCommentContainer } from "../styles/Container-Create-Comment";
-import { Post } from "../protocols";
 
 interface CreateCommentProps {
   postId: number;
-  posts: Post[];
-  setPosts: Function;
+  refresh: boolean;
+  setRefresh: Function;
 }
 
 export default function CreateComment({
   postId,
-  posts,
-  setPosts,
+  refresh,
+  setRefresh,
 }: CreateCommentProps) {
   const [form, setForm] = useState({ description: "" });
   const { token } = useToken();
   function submitData(event: FormEvent) {
     event.preventDefault();
     createComment({ token, postId, description: form.description })
-      .then((res) => console.log(res))
+      .then(() => setRefresh(!refresh))
       .catch((res) => console.log(res));
   }
   return (
