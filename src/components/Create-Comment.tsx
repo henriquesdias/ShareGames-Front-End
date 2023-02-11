@@ -25,15 +25,23 @@ export default function CreateComment({
       .catch((res) => console.log(res));
   }
   return (
-    <CreateCommentContainer onSubmit={submitData}>
-      <input
-        type="text"
-        name="description"
-        value={form.description}
-        placeholder="Escreva sua mensagem"
-        onChange={(e) => setForm({ ...form, [e.target.name]: e.target.value })}
-      />
-      <button type="submit">Enviar</button>
-    </CreateCommentContainer>
+    <>
+      {token ? (
+        <CreateCommentContainer onSubmit={submitData}>
+          <input
+            type="text"
+            name="description"
+            value={form.description}
+            placeholder="Escreva sua mensagem"
+            onChange={(e) =>
+              setForm({ ...form, [e.target.name]: e.target.value })
+            }
+          />
+          <button type="submit">Enviar</button>
+        </CreateCommentContainer>
+      ) : (
+        <></>
+      )}
+    </>
   );
 }

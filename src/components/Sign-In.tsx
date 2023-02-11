@@ -3,11 +3,12 @@ import { useState, useContext, FormEvent } from "react";
 import signIn from "../api/sign-in";
 import { UserContext } from "../context/User-Context";
 
-type AuthProps = {
+interface AuthProps {
   setShowAuth: Function;
-};
+}
 
 export default function SignIn({ setShowAuth }: AuthProps) {
+  const [showWarning, setShowWarning] = useState<boolean>(true);
   const { setToken } = useContext(UserContext);
   const [form, setForm] = useState({
     email: "",
@@ -15,6 +16,7 @@ export default function SignIn({ setShowAuth }: AuthProps) {
   });
   function submitData(event: FormEvent) {
     event.preventDefault();
+    setShowWarning(false);
     signIn(form)
       .then((res) => {
         const { token } = res.data;
@@ -22,7 +24,7 @@ export default function SignIn({ setShowAuth }: AuthProps) {
         setToken(token);
         setShowAuth(false);
       })
-      .catch((res) => console.log(res));
+      .catch((res) => setShowWarning(true));
   }
   return (
     <form onSubmit={submitData}>
@@ -42,6 +44,7 @@ export default function SignIn({ setShowAuth }: AuthProps) {
         onChange={(e) => setForm({ ...form, [e.target.name]: e.target.value })}
         required
       />
+      {showWarning ? <div>Password/Email are invalids</div> : <></>}
       <button type="submit">Sign-in</button>
     </form>
   );
