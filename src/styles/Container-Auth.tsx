@@ -50,6 +50,10 @@ export const AuthContainer = styled.div`
     text-decoration: underline;
     cursor: pointer;
   }
+  div {
+    color: red;
+    margin-bottom: 10px;
+  }
   @media (max-width: 694px) {
     width: 100%;
   }

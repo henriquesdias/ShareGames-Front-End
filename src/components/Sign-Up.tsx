@@ -1,11 +1,12 @@
 import { FormEvent, useState } from "react";
 import signUp from "../api/sign-up";
 
-type AuthProps = {
+interface AuthProps {
   setShowAuth: Function;
-};
+}
 
 export default function SignUp({ setShowAuth }: AuthProps) {
+  const [warning, setWarning] = useState<string>("");
   const [form, setForm] = useState({
     email: "",
     username: "",
@@ -15,10 +16,20 @@ export default function SignUp({ setShowAuth }: AuthProps) {
   });
   function submitData(event: FormEvent) {
     event.preventDefault();
-    const { email, username, picture, password } = form;
+    setWarning("");
+    const { email, username, picture, password, confirmPassword } = form;
+    if (password !== confirmPassword) {
+      setWarning("The passwords must be equal");
+      return;
+    }
     signUp({ email, username, picture, password })
       .then(() => setShowAuth(false))
-      .catch((res) => console.log(res));
+      .catch(({ response }) => {
+        if (response.status === 409) {
+          setWarning(response.data);
+        }
+        setWarning("Error. Please, try again later");
+      });
   }
   return (
     <form onSubmit={submitData}>
@@ -48,7 +59,7 @@ export default function SignUp({ setShowAuth }: AuthProps) {
       <input
         type="password"
         value={form.password}
-        placeholder="Password"
+        placeholder="Password (Minimum 8)"
         name="password"
         onChange={(e) => setForm({ ...form, [e.target.name]: e.target.value })}
         required
@@ -61,6 +72,7 @@ export default function SignUp({ setShowAuth }: AuthProps) {
         onChange={(e) => setForm({ ...form, [e.target.name]: e.target.value })}
         required
       />
+      <div>{warning}</div>
       <button type="submit">Sign-up</button>
     </form>
   );
