@@ -1,4 +1,4 @@
-import { SinglePost } from "../components/Single-Post";
+import SinglePost from "../components/Single-Post";
 import { ContainerFeed } from "../styles/Container-Feed";
 import Header from "../components/Header";
 import usePosts from "../hooks/usePosts";
@@ -13,13 +13,7 @@ export default function Feed() {
         <div>
           <CreatePost refresh={refresh} setRefresh={setRefresh} />
           {posts.map((e, index) => (
-            <SinglePost
-              showComments={false}
-              post={e}
-              refresh={refresh}
-              setRefresh={setRefresh}
-              key={index}
-            />
+            <SinglePost post={e} key={index} />
           ))}
         </div>
       </ContainerFeed>

@@ -8,7 +8,7 @@ interface AuthProps {
 }
 
 export default function SignIn({ setShowAuth }: AuthProps) {
-  const [showWarning, setShowWarning] = useState<boolean>(true);
+  const [showWarning, setShowWarning] = useState<boolean>(false);
   const { setToken } = useContext(UserContext);
   const [form, setForm] = useState({
     email: "",

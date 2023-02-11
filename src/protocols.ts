@@ -11,7 +11,7 @@ export type Comment = {
   description: string;
   createdAt: Date | string;
   deletedAt: null;
-  Users: Omit<User, "createdAt" | "deletedAt">[];
+  Users: Omit<User, "createdAt" | "deletedAt">;
 };
 
 export type Post = {

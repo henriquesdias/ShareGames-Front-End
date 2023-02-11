@@ -27,6 +27,7 @@ export default function SignUp({ setShowAuth }: AuthProps) {
       .catch(({ response }) => {
         if (response.status === 409) {
           setWarning(response.data);
+          return;
         }
         setWarning("Error. Please, try again later");
       });
