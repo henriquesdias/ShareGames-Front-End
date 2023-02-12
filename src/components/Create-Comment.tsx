@@ -7,16 +7,22 @@ import PrivateComponent from "./Private-Component";
 
 interface CreateCommentProps {
   postId: number;
+  refresh: boolean;
+  setRefresh: (refresh: boolean) => void;
 }
 
-export default function CreateComment({ postId }: CreateCommentProps) {
+export default function CreateComment({
+  postId,
+  refresh,
+  setRefresh,
+}: CreateCommentProps) {
   const [form, setForm] = useState({ description: "" });
   const { token } = useToken();
 
   function submitData(event: FormEvent) {
     event.preventDefault();
     createComment({ token, postId, description: form.description })
-      .then((res) => console.log(res))
+      .then(() => setRefresh(!refresh))
       .catch((res) => console.log(res));
   }
   return (

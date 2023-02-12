@@ -8,6 +8,8 @@ export type User = {
 
 export type Comment = {
   id: number;
+  postId: number;
+  userId: number;
   description: string;
   createdAt: Date | string;
   deletedAt: null;
@@ -22,7 +24,6 @@ export type Post = {
   createdAt: Date | string;
   deletedAt: null;
   Users: User;
-  Comments: Comment[];
 };
 
 export type Theme = {

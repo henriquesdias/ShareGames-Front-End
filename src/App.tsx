@@ -5,7 +5,7 @@ import { ThemeProvider } from "styled-components";
 
 import { ResetStyle } from "./styles/Reset";
 import Feed from "./pages/Feed";
-import PostWithComments from "./components/Post-With-Comments";
+import PostWithComments from "./pages/Post-With-Comments";
 import { UserContext } from "./context/User-Context";
 import themes from "./styles/themes";
 import { Theme } from "./protocols";
