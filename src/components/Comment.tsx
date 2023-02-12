@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 import { Comment } from "../protocols";
 import picture from "../assets/default-profile.jpg";
 
@@ -6,7 +7,7 @@ type CommentProps = {
   comment: Comment;
 };
 
-export default function Comments({ comment }: CommentProps) {
+export default function EachComment({ comment }: CommentProps) {
   return (
     <CommentContainer>
       <span>
