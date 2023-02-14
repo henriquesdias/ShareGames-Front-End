@@ -5,6 +5,8 @@ services:
     container_name: app_react
     volumes:
       - build_react:/var/www/html
+    networks:
+      - my-network
 
   nginx:
     build: ./nginx
@@ -15,6 +17,14 @@ services:
       - build_react:/var/www/html
     depends_on:
       - app_react
+    external_links:
+      - node_app
+    networks:
+      - my-network
 
 volumes:
   build_react:
+
+networks:
+  my-network:
+    external: true
